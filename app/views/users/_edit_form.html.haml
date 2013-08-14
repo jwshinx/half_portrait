@@ -1,5 +1,8 @@
-/= form_for @user do |f| 
-= form_for @user, {:url => users_path, :method => :post} do |f|
+- #= form_for @user, :url => users_path, :html => {:method => :put} do |f|
+- #= form_for @user, :method => :put do |f| 
+- #= form_for @user, :url => { :action => "/update" }, :html => { :method => 'put' } do |f|  
+- #= form_for @user, :html => { :method => 'put' } do |f|
+= form_for @user, :method => 'put' do |f|
  - #- if @user.errors.any?
  - # = render :partial => 'shared/error_explanation', :object => @user, :as => :object
 

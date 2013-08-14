@@ -1,10 +1,19 @@
 Portrait::Application.routes.draw do
   resources :roles
 
-
-  devise_for :users 
+  post "/users" => "users#create"
   
-  resources :users
+  devise_for :users   
+   
+  #resources :users               
+  # hack.  cant figure out devise sign-out issue.
+  get "/users" => "users#index", :as => :users  
+  get "/users/new" => "users#new", :as => :new_user
+  get "/users/:id" => "users#show", :as => :user
+  get "/users/:id/edit" => "users#edit", :as => :edit_user
+  delete "/users/:id" => "users#destroy" 
+  put "/users/:id" => "users#update"
+ 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

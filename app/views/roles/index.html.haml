@@ -12,10 +12,16 @@
     %tr
       %td= role.name
       %td= role.description
-      %td= link_to 'Show', role
-      %td= link_to 'Edit', edit_role_path(role)
-      %td= link_to 'Destroy', role, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
+        - if can? :read, Role
+          = link_to 'Show', role
+      %td
+        - if can? :update, Role
+          = link_to 'Edit', edit_role_path(role)
+      %td
+        - if can? :destroy, Role
+          = link_to 'Destroy', role, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Role', new_role_path
+- if can? :create, Role
+  = link_to 'New Role', new_role_path

@@ -5,7 +5,8 @@
  %b Role:
  = @user.role.name
 
-- if can? :edit, User, :id => @user.id
+- if(can? :edit, User) && (@user == current_user)
+- # - if can? :edit, User, :id => @user.id
  = link_to 'Edit', edit_user_path(@user)
  \|
 - if can? :read, User

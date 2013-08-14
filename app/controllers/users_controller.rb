@@ -1,10 +1,14 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController        
+#class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_user!
   load_and_authorize_resource
   layout 'user'
+
+  #skip_before_filter :require_no_authentication
+
   
-  def index
-    @users = User.all
+  def index 
+    @users = User.includes(:role).all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -20,7 +20,7 @@
       - if can? :read, User
        = link_to 'Show', user
      %td
-      - if(can? :edit, user) && (user != current_user)
+      - if(can? :edit, user) && (user == current_user)
        = link_to 'Edit', edit_user_path(user)
      %td
       - if can? :destroy, User
