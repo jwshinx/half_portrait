@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Anniversary date:
+  = @subscription.anniversary_date
+%p
+  %b Active:
+  = @subscription.active
+%p
+  %b Product:
+  = @subscription.product_id
+%p
+  %b Customer:
+  = @subscription.customer_id
+
+= link_to 'Edit', edit_subscription_path(@subscription)
+\|
+= link_to 'Back', subscriptions_path

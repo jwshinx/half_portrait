@@ -12,7 +12,8 @@ gem 'cancan'
 gem 'haml'
 gem 'haml-rails'
 gem 'annotate', ">=2.5.0"
-gem 'httparty'
+gem 'httparty'   
+gem 'aasm'
 
 # Gems used only for assets and not required
 # in production environments by default.

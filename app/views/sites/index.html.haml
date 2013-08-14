@@ -1,0 +1,33 @@
+%h1 Sites
+
+%table
+  %tr
+    %th Url
+    %th User
+    %th Aasm state
+    %th
+    %th
+    %th
+    %th
+
+  - @sites.each do |site|
+    %tr
+      %td= site.url
+      %td= site.user.email
+      %td= site.aasm_state 
+      %td
+        - if can? :update, Site
+          = link_to 'Change', change_state_path(site)
+      %td    
+        - if can? :read, Site
+          = link_to 'Show', site
+      %td
+        - if can? :update, Site
+          = link_to 'Edit', edit_site_path(site)   
+      %td     
+        - if can? :destroy, Site
+          = link_to 'Destroy', site, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+- if can? :create, Site
+  = link_to 'New Site', new_site_path

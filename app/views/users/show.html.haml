@@ -5,9 +5,15 @@
  %b Role:
  = @user.role.name
 
+= render 'shared/list_sites'
+
+
 - if(can? :edit, User) && (@user == current_user)
 - # - if can? :edit, User, :id => @user.id
  = link_to 'Edit', edit_user_path(@user)
  \|
 - if can? :read, User
- = link_to 'Back', users_path
+ = link_to 'Back', users_path 
+- if can? :create, Site
+ \|
+ = link_to 'New Site', new_site_path

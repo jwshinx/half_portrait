@@ -1,0 +1,26 @@
+%p
+  %b Url:
+  = @site.url
+%p
+  %b User:
+  = @site.user.email 
+%p
+  %b Aasm state:
+  = @site.aasm_state
+%p
+  %b Submitted:
+  = @site.submitted
+%p
+  %b Processing:
+  = @site.processing
+%p
+  %b Success:
+  = @site.success
+%p
+  %b Failure:
+  = @site.failure
+
+
+= link_to 'Edit', edit_site_path(@site)
+\|
+= link_to 'Back', sites_path

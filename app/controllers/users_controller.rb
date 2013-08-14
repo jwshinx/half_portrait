@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])  
+    #@sites = Site.submitted_portraits
+    @sites = @user.sites
 
     respond_to do |format|
       format.html # show.html.erb

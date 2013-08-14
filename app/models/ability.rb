@@ -11,7 +11,8 @@ class Ability
       can :read, User, :id => user.id  
       # devise registration
       #cannot :create, User
-      can :update, User, :id => user.id      
+      can :update, User, :id => user.id
+      can :manage, Site     
     else
     end
   end

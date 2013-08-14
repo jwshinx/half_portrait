@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814050831) do
+ActiveRecord::Schema.define(:version => 20130814174629) do
+
+  create_table "consumptions", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "subscription_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.integer  "allotment"
+    t.integer  "price"
+    t.string   "period"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -21,6 +45,28 @@ ActiveRecord::Schema.define(:version => 20130814050831) do
   end
 
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "sites", :force => true do |t|
+    t.string   "url"
+    t.integer  "user_id"
+    t.boolean  "submitted"
+    t.boolean  "processing"
+    t.boolean  "success"
+    t.boolean  "failure"
+    t.string   "aasm_state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sites", ["url"], :name => "index_sites_on_url"
+
+  create_table "subscriptions", :force => true do |t|
+    t.date     "anniversary_date"
+    t.boolean  "active"
+    t.integer  "customer_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -36,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20130814050831) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "role_id"
+    t.integer  "subscription_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

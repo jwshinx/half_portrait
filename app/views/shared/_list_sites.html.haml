@@ -1,0 +1,17 @@
+%table
+  %tr
+    %th Url
+    %th Aasm state
+    %th
+    %th
+    %th
+    %th
+
+  - @sites.each do |site|
+    %tr
+      %td= site.url
+      %td= site.aasm_state
+      %td= link_to 'Change', change_state_path(site)
+      %td= link_to 'Show', site
+      %td= link_to 'Edit', edit_site_path(site)
+      %td= link_to 'Destroy', site, :method => :delete, :data => { :confirm => 'Are you sure?' }

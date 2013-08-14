@@ -1,4 +1,16 @@
 Portrait::Application.routes.draw do
+  resources :products
+
+
+  resources :subscriptions
+
+
+  resources :customers
+
+
+  resources :sites
+
+
   resources :roles
 
   post "/users" => "users#create"
@@ -14,7 +26,7 @@ Portrait::Application.routes.draw do
   delete "/users/:id" => "users#destroy" 
   put "/users/:id" => "users#update"
  
-
+  get "/sites/change_state/:id" => "sites#change_state", :as => :change_state
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
