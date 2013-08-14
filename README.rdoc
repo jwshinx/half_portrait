@@ -3,6 +3,3 @@
 A work-in-progress implementation of devise/cancan authorization and authentication.
 Customer would like to sign up for 'portrait' service that would allow for mulitiple
 user accounts.  Payment would be made on the day of the monthly anniversary date.
-
-== Thanks you
-https://github.com/jmckible/portrait
