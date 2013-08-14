@@ -9,6 +9,10 @@ gem 'sqlite3'
 
 gem 'devise'
 gem 'cancan' 
+gem 'haml'
+gem 'haml-rails'
+gem 'annotate', ">=2.5.0"
+gem 'httparty'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +28,11 @@ end
 
 gem 'jquery-rails'
 
+group :test, :development do
+  gem 'steak'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 2.0'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
