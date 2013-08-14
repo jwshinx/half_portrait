@@ -1,0 +1,18 @@
+= form_for @user do |f|
+ - #- if @user.errors.any?
+ - # = render :partial => 'shared/error_explanation', :object => @user, :as => :object
+
+ .field
+  = f.label :email
+  = f.email_field :email     
+ .field
+  = f.label :role_id
+  = f.select :role_id, Role.all.collect {|r| [r.name, r.id]}
+ .field
+  = f.label :password
+  = f.password_field :password
+ .field
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
+ .actions
+  = f.submit 'Save'

@@ -1,0 +1,6 @@
+- if user_signed_in? 
+  %ul
+    - if can? :create, User
+      %li= link_to 'Users', users_path
+    - if can? :create, User
+      %li= link_to 'Roles', roles_path
