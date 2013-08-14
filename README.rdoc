@@ -3,3 +3,8 @@
 A work-in-progress implementation of devise/cancan authorization and authentication.
 Customer would like to sign up for 'portrait' service that would allow for mulitiple
 user accounts.  Payment would be made on the day of the monthly anniversary date.
+           
+Login can be created through the console. Create a fake admin user:
+
+admin = Role.creat({name: 'admin', description: 'description})
+admin.users.create({email: 'aaa@aaa.com', password: 'password', password_confirmation: 'password'})
